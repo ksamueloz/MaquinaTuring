@@ -9,7 +9,6 @@
         <script type="text/javascript" src="js/sweetalert2.min.js"></script> 
         <script type="text/javascript" src="js/index.js"></script>
       
-        
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     </head>
     <body>
@@ -31,10 +30,16 @@
               <div class="d-block">
                   <div class="col-6 my-3">
                       <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Expresión {a,b}" id="texto">
-                        <span class="input-group-btn">
-                          <button class="btn btn-info" type="button" id="ingresar" data-toggle="popover" title="Error"  data-content="La cadena está vacía." data-placemente="right" data-trigger="focus">Ingresar</button>
+                      <form action="#" method= _POST>
+                        <input type="text" class="form-control " placeholder="Expresión {a,b}" id="texto" required pattern="[a-b]+">
+                        <button class="btn btn-info" type="submit" id="ingresar" 
+                          data-toggle="popover" title="Error"  
+                          data-content="La cadena está vacía." data-placemente="right" 
+                          data-trigger="focus">Ingresar</button>
                           <button class="btn btn-secondary" id="info"><strong>?</strong></button>
+                      </form>
+                        <span class="input-group-btn">
+                          
                         </span>                                  
                       </div>
                   </div>  
