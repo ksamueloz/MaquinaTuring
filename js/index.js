@@ -26,7 +26,7 @@ $(function() {
     $('#verificar').click(
         function(){
             tiempo = 1000 - $("#rango").val();
-            cabecera = setInterval(function(){evaluarEntrada()}, tiempo);
+            evaluarEntrada(tiempo);
             
         }
 
@@ -65,68 +65,59 @@ function leerCaracteresDeEntrada(){
 
 
 
-function evaluarEntrada() {
+function evaluarEntrada(tiempo) {
     let cadena = caracterBlanco + $('#texto').val() + caracterBlanco;
     let i = 1;
-    let estado='q1';
-    setInterval(()=>{
-        while(estado != 'q3' ){
-            if ((cadena[i] == 'a' || cadena[i] == 'b') && estado == 'q1'){
-                console.log("hola");
+    let estado='Q1';
+    var con = 0;
+    cabecera = setInterval(()=>{
+        while(estado != 'Q3' ){
+            if ((cadena[i] == 'a' || cadena[i] == 'b') && estado == 'Q1'){
                 $('#'+i).text('a');
+                $('#contador').text(con);
                 i++;
+                con++
+                console.log(i);
+                break;
             }
-            if(cadena[i] == caracterBlanco && estado == 'q1'){
-                console.log("loco");
-                
-                estado='q2';
+            if(cadena[i] == caracterBlanco && estado == 'Q1'){
+                estado='Q2';
+                $('#estado').text(estado);
+                $('#contador').text(con);
+                con++
                 console.log(estado);
+                break;
             }
-            if(estado == 'q2' ){
-
-                if (i>=1) {
+            if(estado == 'Q2' ){
+                if (i>1) {
+                    $('#contador').text(con);
+                    con++
                     i--;
                     console.log(i);
-                    console.log(cadena[i]);
-                    console.log("mundo");
-                    $('#'+i).text('a');
+                    $('#'+i).text('b');
+                    break;
                     
                 }
-                if (i==0) {
+                if (i==1) {
+                    $('#contador').text(con);
+                    con++
+                    i--;
                     $('#'+i).text(caracterBlanco);
+                    console.log(i);
                     i=1;
-                    estado = 'q3'; 
-                    break;
+                    console.log(i);
+                    estado = 'Q3';
+                    $('#estado').text(estado);
+                    console.log(estado);
+                    break; 
                 }
                 
             }
         }
-        console.log(i);
-        
-        
-    },500);
+    },tiempo);
 }
 
-
-
-        function sleep(milliseconds) {
-            var start = new Date().getTime();
-            for (var i = 0; i < 1e7; i++) {
-            if ((new Date().getTime() - start) > milliseconds) {
-            break;
-            }
-            }
-        }
-
-        function demo(i) {
-                var cualquiera = $('#'+ i).text();
-                console.log(typeof cualquiera);
-                sleep(2000);
-                console.log($('#'+ i).text());
-        }
-        
-        //Detiene el indice
-        function detenerMaquina(){
-            clearInterval(cabecera);
-            slepp(2000);
-        }
+    //Detiene el indice
+    function detenerMaquina(){
+        clearInterval(cabecera);
+    }
