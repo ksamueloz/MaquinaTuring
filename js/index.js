@@ -26,7 +26,8 @@ $(function() {
     $('#verificar').click(
         function(){
             tiempo = 1000 - $("#rango").val();
-            cabecera = setInterval(function(){evaluarEntrada(1)}, tiempo);
+            cabecera = setInterval(function(){evaluarEntrada()}, tiempo);
+            
         }
 
     );
@@ -61,23 +62,8 @@ function leerCaracteresDeEntrada(){
         }
         return true;
 }
-//Evalua toda la cinta y reemplazarlos por a
-//En desarrollo
-/*function evaluarEntrada(i) {
-    var cadena = $('#texto').val();
-    cadena = caracterBlanco+cadena+caracterBlanco;
-    var bandera=false
-    if(cadena[i] == 'a' || cadena[i] == 'b'){
-        document.getElementById(i).innerHTML = "a";
-        i++;
-        if(cadena.length==i){
-            detenerMaquina();
-        }else{
-            evaluarEntrada(i++);
-        } 
-    }
-    
-}*/
+
+
 
 function evaluarEntrada() {
     let cadena = caracterBlanco + $('#texto').val() + caracterBlanco;
@@ -119,27 +105,28 @@ function evaluarEntrada() {
         
         
     },500);
-    detenerMaquina();
 }
 
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-     if ((new Date().getTime() - start) > milliseconds) {
-      break;
-     }
-    }
-   }
 
-   function demo(i) {
-        var cualquiera = $('#'+ i).text();
-        console.log(typeof cualquiera);
-        sleep(2000);
-        console.log($('#'+ i).text());
-   }
-   
-//Detiene el indice
-function detenerMaquina(){
-    clearInterval(cabecera);
-    slepp(2000);
-}
+
+        function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds) {
+            break;
+            }
+            }
+        }
+
+        function demo(i) {
+                var cualquiera = $('#'+ i).text();
+                console.log(typeof cualquiera);
+                sleep(2000);
+                console.log($('#'+ i).text());
+        }
+        
+        //Detiene el indice
+        function detenerMaquina(){
+            clearInterval(cabecera);
+            slepp(2000);
+        }
