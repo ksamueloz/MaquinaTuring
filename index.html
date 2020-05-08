@@ -1,80 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Máquina de Turing</title>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/sweetalert2.min.js"></script> 
-        <script type="text/javascript" src="js/index.js"></script>
-      
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    </head>
-    <body>
 
-        <div class="sticky-top bg-white">
-            <h1 class="text-center">
-                <strong id="etiqueta">Máquina De Turing</strong>
-            </h1>
-          <div class="d-flex justify-content-center mt-1 mb-5 ">
-              <div class="row">
-                  <div class="col">
-                      <ul class="nav nav-tabs small" role="tablist">
-                          <li id="elemento" class="nav-item"><a class="nav-link text-uppercase active text-info" data-toggle="tab" role="tab">Máquina De Turing</a></li>                        
-                      </ul>
-                  </div>
-              </div>
-          </div>
-            <center>
-              <div class="d-block">
-                  <div class="col-6 my-3">
-                      <div class="input-group">
-                      <form action="#" method= _POST>
-                        <input type="text" class="form-control " placeholder="Expresión {a,b}" id="texto" required pattern="[a-b]+">
-                        <button class="btn btn-info" type="submit" id="ingresar" 
-                          data-toggle="popover" title="Error"  
-                          data-content="La cadena está vacía." data-placemente="right" 
-                          data-trigger="focus">Ingresar</button>
-                          <button class="btn btn-secondary" id="info"><strong>?</strong></button>
-                      </form>
-                        <span class="input-group-btn">
-                          
-                        </span>                                  
-                      </div>
-                  </div>  
-                  <div class="col-3 my-4">
-                      <p class="lead">Contador: <span id="contador">0</span> | Estado: <span id="estado">Q1</span></p>
-                      
-                      <div class="slidecontainer">
-                        Velocidad:<br>
-                        <input type="range" min="0" max="1000" value="500"  step="100"class="slider" id="rango"><p></p>
-                      </div>
-                      <div class="btn-group" role="group" aria-label="Funciones">
-                            <button class="btn btn-danger" id="verificar" content="1">Verificar Expresión</button>
-                            <button class="btn btn-warning" id="detener" content="1" onclick="detenerMaquina()">Detener</button>
-                      </div>                      
-                      
-                  </div>
-              </div>
-            </center>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina de Turing</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
 
+<body>
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab1" role="tabpanel">
-                <center>
-                    <div class="d-inline ">
-                              <div class="col-10">
-                                  <table id="tabla" class="table table-hover text-center table-responsive">
-                                      <tbody>
-                                      </tbody>
-                                    </table>
-                              </div>
-                    </div>
-                  </center>
+    <div class="sticky-top bg-white">
+        <h1 class="text-center">
+            <strong id="etiqueta">Máquina De Turing</strong>
+        </h1>
+        <div class="d-flex justify-content-center mt-1 mb-5 ">
+            <div class="row">
+                <div class="col">
+                    <ul class="nav nav-tabs small" role="tablist">
+                        <li id="elemento" class="nav-item"><a class="nav-link text-uppercase active text-info"
+                                data-toggle="tab" role="tab">Máquina De Turing</a></li>
+                    </ul>
+                </div>
             </div>
-      </div>
-    </body>
+        </div>
+        <center>
+            <div class="d-block">
+                <div class="col-6 my-3">
+                    <div class="input-group">
+                        <form action="#" method=_POST>
+                            <input type="text" class="form-control " placeholder="Expresión {a,b}" id="texto" required
+                                pattern="[a-b]+">
+                            <button class="btn btn-info" type="submit" id="ingresar" data-toggle="popover" title="Error"
+                                data-content="La cadena está vacía." data-placemente="right"
+                                data-trigger="focus">Ingresar</button>
+                            <button class="btn btn-secondary" id="info"><strong>?</strong></button>
+                        </form>
+                        <span class="input-group-btn">
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-3 my-4">
+                    <p class="lead">Contador: <span id="contador">0</span> | Estado: <span id="estado">Q1</span></p>
+
+                    <div class="slidecontainer">
+                        Velocidad:<br>
+                        <input type="range" min="0" max="1000" value="500" step="100" class="slider" id="rango">
+                        <p></p>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Funciones">
+                        <button class="btn btn-danger" id="verificar" content="1">Verificar Expresión</button>
+                        <button class="btn btn-warning" id="detener" content="1"
+                            onclick="detenerMaquina()">Detener</button>
+                    </div>
+
+                </div>
+            </div>
+        </center>
+    </div>
+
+
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1" role="tabpanel">
+            <center>
+                <div class="d-inline ">
+                    <div class="col-10">
+                        <table id="tabla" class="table table-hover text-center table-responsive">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </html>
