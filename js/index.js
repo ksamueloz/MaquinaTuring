@@ -79,23 +79,47 @@ function leerCaracteresDeEntrada(){
     
 }*/
 
-function evaluarEntrada(i) {
-    var cadena = $('#texto').val();
-    cadena = caracterBlanco+cadena+caracterBlanco;
-    /*for(i=0;i<cadena.length;i++){
-        for(x=0;x<cadena.length;i++){
+function evaluarEntrada() {
+    let cadena = caracterBlanco + $('#texto').val() + caracterBlanco;
+    let i = 1;
+    let estado='q1';
+    setInterval(()=>{
+        while(estado != 'q3' ){
+            if ((cadena[i] == 'a' || cadena[i] == 'b') && estado == 'q1'){
+                console.log("hola");
+                $('#'+i).text('a');
+                i++;
+            }
+            if(cadena[i] == caracterBlanco && estado == 'q1'){
+                console.log("loco");
+                
+                estado='q2';
+                console.log(estado);
+            }
+            if(estado == 'q2' ){
 
+                if (i>=1) {
+                    i--;
+                    console.log(i);
+                    console.log(cadena[i]);
+                    console.log("mundo");
+                    $('#'+i).text('a');
+                    
+                }
+                if (i==0) {
+                    $('#'+i).text(caracterBlanco);
+                    i=1;
+                    estado = 'q3'; 
+                    break;
+                }
+                
+            }
         }
-    }*/
-    if(cadena[i] == 'a' || cadena[i] == 'b'){
-        document.getElementById(i).innerHTML = "a";
-        setInterval(function(){i++},2000);
-        if(cadena.length==i){
-            detenerMaquina();
-        }else{
-            evaluarEntrada(i++);
-        } 
-    }
+        console.log(i);
+        
+        
+    },500);
+    detenerMaquina();
 }
 
 function sleep(milliseconds) {
@@ -117,4 +141,5 @@ function sleep(milliseconds) {
 //Detiene el indice
 function detenerMaquina(){
     clearInterval(cabecera);
+    slepp(2000);
 }
