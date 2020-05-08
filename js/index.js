@@ -26,7 +26,8 @@ $(function() {
     $('#verificar').click(
         function(){
             tiempo = 1000 - $("#rango").val();
-            cabecera = setInterval(function(){evaluarEntrada(1)}, tiempo);
+            cabecera = setInterval(function(){evaluarEntrada()}, tiempo);
+            
         }
 
     );
@@ -61,41 +62,30 @@ function leerCaracteresDeEntrada(){
         }
         return true;
 }
-//Evalua toda la cinta y reemplazarlos por a
-//En desarrollo
-/*function evaluarEntrada(i) {
-    var cadena = $('#texto').val();
-    cadena = caracterBlanco+cadena+caracterBlanco;
-    var bandera=false
-    if(cadena[i] == 'a' || cadena[i] == 'b'){
-        document.getElementById(i).innerHTML = "a";
-        i++;
-        if(cadena.length==i){
-            detenerMaquina();
-        }else{
-            evaluarEntrada(i++);
-        } 
-    }
-    
-}*/
 
-function evaluarEntrada(i) {
-    var cadena = $('#texto').val();
-    cadena = caracterBlanco+cadena+caracterBlanco;
-    /*for(i=0;i<cadena.length;i++){
-        for(x=0;x<cadena.length;i++){
-
-        }
-    }*/
-    if(cadena[i] == 'a' || cadena[i] == 'b'){
-        document.getElementById(i).innerHTML = "a";
-        setInterval(function(){i++},2000);
-        if(cadena.length==i){
-            detenerMaquina();
-        }else{
-            evaluarEntrada(i++);
-        } 
-    }
+function evaluarEntrada() {
+   let cadena = caracterBlanco + $('#texto').val() + caracterBlanco;
+   let i = 1;
+   setInterval(()=>{
+       let estado='q1';
+            if ((cadena[i]=='a' || cadena[i]=='b') && estado=='q1'){
+                 $('#'+i).text('a');
+                 i++;
+            }else{
+                /*if(cadena[i]==caracterBlanco){
+                estado='q2';
+                i--;
+                console.log('mejor pal perro');
+                if(estado=='q2'){
+                    $('#'+i).text('b');
+                    i--;
+                    console.log('si la perra es mocha');
+                }
+                }*/
+            }
+        
+    },500 );
+    detenerMaquina();
 }
 
 function sleep(milliseconds) {
