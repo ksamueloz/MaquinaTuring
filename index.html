@@ -3,90 +3,142 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="js/sweetalert2.min.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <title>Máquina De Turing</title>
+    <title>Máquina De Turing</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
-    type="text/css">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+        type="text/css">
 
-  <!-- Custom styles for this template -->
-  <link href="css/landing-page.min.css" rel="stylesheet">
-  <link href="css/landing-page.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">
+    <link href="css/landing-page.css" rel="stylesheet">
 
 </head>
 
-<body>
-  <!-- Masthead -->
-  <header class="masthead text-white text-center">
-    <div class="overlay"></div>
+<body style="background: #2b2b2b;">
+    <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Máquina de Turing</h1>
+        <div class="rounded mx-auto d-block">
+            <p><img src="img/unimag.png" alt="Logo Unimag" height="150" width="150"></p>
         </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form action="#" method="POST">
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="text" class="form-control form-control-lg" placeholder="Expresión {a,b}" id="texto"
-                  required pattern="[a-b]+">
-              </div>
-              <div class="col-12 col-md-3">
-                <button class="btn btn-block btn-lg btn-primary" type="button" id="ingresar" data-toggle="popover"
-                  title="Error" data-content="La cadena está vacía." data-placemente="right"
-                  data-trigger="focus">Ingresar</button>
-              </div>
+    </div>
+  </nav>
+    <!-- Masthead -->
+    <header class="masthead text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Máquina de Turing</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form action="#" method="POST">
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input type="text" class="form-control form-control-lg" placeholder="Expresión {a,b}"
+                                    id="texto" required pattern="[a-b]+">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <button class="btn btn-block btn-lg btn-primary" type="button" id="ingresar"
+                                    data-toggle="popover" title="Error" data-content="La cadena está vacía."
+                                    data-placemente="right" data-trigger="focus">Ingresar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </header>
- 
-  <!-- Icons Grid -->
-  <section class="features-icons bg-light text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 ">
-          <p class="lead">Contador: <span id="contador">0</span> | Estado: <span id="estado">Q1</span></p>
-            <table id="tabla" class="table text-center table-responsive">
-              <tbody>
-              </tbody>
-            </table>
-          <div class="slidecontainer">
-            Velocidad:<br>
-            <input type="range" min="0" max="1000" value="500" step="100" class="slider" id="rango">
-            <p></p>
-          </div>
-          <div class="btn-group" role="group" aria-label="Funciones">
-            <button class="btn btn-danger" id="verificar" content="1">Verificar Expresión</button>
-            <button class="btn btn-warning" id="detener" content="1" onclick="detenerMaquina()">Detener</button>
-          </div>
+    </header>
+
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <p class="lead">Contador: <span id="contador">0</span> | Estado: <span id="estado">Q1</span></p>
+                    <div class="table-responsive-lg">
+                        <table id="tabla" class="table text-center table-responsive table-dark table-bordered">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="slidecontainer">
+                        Velocidad:<br>
+                        <input type="range" min="0" max="1000" value="500" step="100" class="slider" id="rango">
+                        <p></p>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Funciones">
+                        <button class="btn btn-danger" id="verificar" content="1">Verificar Expresión</button>
+                        <button class="btn btn-warning" id="detener" content="1"
+                            onclick="detenerMaquina()">Detener</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
- 
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="198.5" rx="30" ry="30"/>
+            <text x="410.5" y="204.5" font-family="Times New Roman" font-size="20" id="q2">Q&#8322;</text>
+            <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="30" ry="30"/>
+            <text x="410.5" y="373.5" font-family="Times New Roman" font-size="20" id="q3">Q&#8323;</text>
+            <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="24" ry="24"/>
+            <ellipse stroke="black" stroke-width="1" fill="none" cx="168.5" cy="198.5" rx="30" ry="30"/>
+            <text x="157.5" y="204.5" font-family="Times New Roman" font-size="20" id="q1">Q&#8321;</text>
+            <polygon stroke="black" stroke-width="1" points="81.5,198.5 138.5,198.5"/>
+            <polygon fill="black" stroke-width="1" points="138.5,198.5 130.5,193.5 130.5,203.5"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 155.275,171.703 A 22.5,22.5 0 1 1 181.725,171.703"/>
+            <text x="136.5" y="122.5" font-family="Times New Roman" font-size="20">a -&gt; a,R</text>
+            <polygon fill="black" stroke-width="1" points="181.725,171.703 190.473,168.17 182.382,162.292"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 181.725,225.297 A 22.5,22.5 0 1 1 155.275,225.297"/>
+            <text x="135.5" y="287.5" font-family="Times New Roman" font-size="20">b -&gt; a,R</text>
+            <polygon fill="black" stroke-width="1" points="155.275,225.297 146.527,228.83 154.618,234.708"/>
+            <polygon stroke="black" stroke-width="1" points="198.5,198.5 391.5,198.5"/>
+            <polygon fill="black" stroke-width="1" points="391.5,198.5 383.5,193.5 383.5,203.5"/>
+            <text x="259.5" y="219.5" font-family="Times New Roman" font-size="20">B -&gt; B,L</text>
+            <path stroke="black" stroke-width="1" fill="none" d="M 413.787,169.63 A 22.5,22.5 0 1 1 439.724,174.817"/>
+            <text x="423.5" y="120.5" font-family="Times New Roman" font-size="20">a -&gt; a,L</text>
+            <polygon fill="black" stroke-width="1" points="439.724,174.817 448.994,173.068 442.214,165.718"/>
+            <polygon stroke="black" stroke-width="1" points="421.5,228.5 421.5,337.5"/>
+            <polygon fill="black" stroke-width="1" points="421.5,337.5 426.5,329.5 416.5,329.5"/>
+            <text x="343.5" y="289.5" font-family="Times New Roman" font-size="20">B -&gt; B,R</text>
+            
+        </svg>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 h-100 text-center text-lg-left my-auto">
+                    <p class="text-muted small mb-4 mb-lg-0">Andres Castro, Aibert Gamboa, Kevin Moreno, Luis Puello
+                        2020. &copy;
+                        All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>
