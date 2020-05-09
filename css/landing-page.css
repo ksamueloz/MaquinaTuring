@@ -124,6 +124,28 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
-tbody{
-  display: inline;
+
+
+
+
+
+footer {
+  background: #2e2b2b;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;    
+  font-size: 0.8rem;
 }
+
+footer a { color: #fff; }
+
+footer a:hover { color: aquamarine; }
+
+footer p { color: white; }
+
+.tm-footer-text-highlight {
+  color: white;
+  font-weight: 600;
+}
+
+.tm-footer-text-highlight:hover { color: #192b7e; }
