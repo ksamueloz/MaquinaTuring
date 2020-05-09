@@ -1,4 +1,4 @@
-const caracterBlanco = 'ß';
+const caracterBlanco = 'B';
 var cabecera = undefined;
 
 //
@@ -80,6 +80,8 @@ function evaluarEntrada(tiempo) {
                 $('#'+i).text('a');
                 $('#'+i).addClass(clase);
                 $('#contador').text(con);
+                //$('#q1v').css({"stroke":"red"});
+                efectoGrafo(cadena[i],estado,'a');
                 pintar = i-1;
                 i++;
                 con++
@@ -91,6 +93,7 @@ function evaluarEntrada(tiempo) {
                 $('#estado').text(estado);
                 $('#contador').text(con);
                 $('#'+i).addClass(clase);
+                efectoGrafo(cadena[i],estado,caracterBlanco);
                 con++
                 pintar = i-1;
                 $('#'+pintar).removeClass(clase);
@@ -103,6 +106,7 @@ function evaluarEntrada(tiempo) {
                     i--;
                     $('#'+i).text('a');
                     $('#'+i).addClass(clase);
+                    efectoGrafo('a',estado,'a');
                     pintar = i+1;
                     $('#'+pintar).removeClass(clase);
                     break;
@@ -115,6 +119,7 @@ function evaluarEntrada(tiempo) {
                     pintar = i+1;
                     $('#'+pintar).removeClass(clase);
                     $('#'+i).text(caracterBlanco);
+                    efectoGrafo('a',estado,caracterBlanco);
                     $('#'+i).addClass(clase);
                     pintar=0;
                     $('#estado').text(estado);
@@ -125,6 +130,7 @@ function evaluarEntrada(tiempo) {
                     $('#'+'1').addClass(clase);
                     estado = 'Q3';
                     $('#estado').text(estado);
+                    efectoGrafo(caracterBlanco,estado,caracterBlanco);
                     swal("Proceso terminado correctamente", "", "success");
                     $("#verificar").attr('disabled', false);
                     break;
@@ -143,3 +149,17 @@ function detenerMaquina(){
     eliminarTabla();
     leerCaracteresDeEntrada();
 }
+//Función del grafo
+function efectoGrafo(oldValue, newState, newValue){
+    //console.log("#"+newState + oldValue + newValue);
+    $("#Q1aa,#Q1ba,#Q2aa,#Q2BB,#Q3BB").css({"fill":"none"});
+    $(".nodo").css({"fill":"#938F8E"});
+  
+    $("#"+newState + oldValue + newValue).css({"fill":"#d48444"});
+    //$("#g"+prevState).css({"fill":"none"});
+    $("#g"+newState).css({"fill":"#d48444"});
+    if(newState == "Q3"){
+      $("#Q1aa,#Q1ba,#Q2aa,#Q2BB,#Q3BB").css({"fill":"black"});
+      $("#"+newState + oldValue + newValue).css({"fill":"#d48444"});
+    }
+  }

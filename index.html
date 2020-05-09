@@ -92,33 +92,45 @@
                 </div>
             </div>
         </div>
-        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="198.5" rx="30" ry="30"/>
-            <text x="410.5" y="204.5" font-family="Times New Roman" font-size="20" id="q2">Q&#8322;</text>
-            <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="30" ry="30"/>
-            <text x="410.5" y="373.5" font-family="Times New Roman" font-size="20" id="q3">Q&#8323;</text>
-            <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="24" ry="24"/>
-            <ellipse stroke="black" stroke-width="1" fill="none" cx="168.5" cy="198.5" rx="30" ry="30"/>
-            <text x="157.5" y="204.5" font-family="Times New Roman" font-size="20" id="q1">Q&#8321;</text>
-            <polygon stroke="black" stroke-width="1" points="81.5,198.5 138.5,198.5"/>
-            <polygon fill="black" stroke-width="1" points="138.5,198.5 130.5,193.5 130.5,203.5"/>
-            <path stroke="black" stroke-width="1" fill="none" d="M 155.275,171.703 A 22.5,22.5 0 1 1 181.725,171.703"/>
-            <text x="136.5" y="122.5" font-family="Times New Roman" font-size="20">a -&gt; a,R</text>
-            <polygon fill="black" stroke-width="1" points="181.725,171.703 190.473,168.17 182.382,162.292"/>
-            <path stroke="black" stroke-width="1" fill="none" d="M 181.725,225.297 A 22.5,22.5 0 1 1 155.275,225.297"/>
-            <text x="135.5" y="287.5" font-family="Times New Roman" font-size="20">b -&gt; a,R</text>
-            <polygon fill="black" stroke-width="1" points="155.275,225.297 146.527,228.83 154.618,234.708"/>
-            <polygon stroke="black" stroke-width="1" points="198.5,198.5 391.5,198.5"/>
-            <polygon fill="black" stroke-width="1" points="391.5,198.5 383.5,193.5 383.5,203.5"/>
-            <text x="259.5" y="219.5" font-family="Times New Roman" font-size="20">B -&gt; B,L</text>
-            <path stroke="black" stroke-width="1" fill="none" d="M 413.787,169.63 A 22.5,22.5 0 1 1 439.724,174.817"/>
-            <text x="423.5" y="120.5" font-family="Times New Roman" font-size="20">a -&gt; a,L</text>
-            <polygon fill="black" stroke-width="1" points="439.724,174.817 448.994,173.068 442.214,165.718"/>
-            <polygon stroke="black" stroke-width="1" points="421.5,228.5 421.5,337.5"/>
-            <polygon fill="black" stroke-width="1" points="421.5,337.5 426.5,329.5 416.5,329.5"/>
-            <text x="343.5" y="289.5" font-family="Times New Roman" font-size="20">B -&gt; B,R</text>
+        <div class="container" id="maq-turing">
+            <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <!--q2-->
+            <ellipse class="nodo" id="gQ2" stroke="black" stroke-width="1" fill="none" cx="421.5" cy="198.5" rx="30" ry="30"></ellipse>
+            <text x="410.5" y="204.5" font-family="Times New Roman" font-size="20" id="q2">Q₂</text>
+                <!--q3-->
+            <ellipse class="nodo" id="gQ3" stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="30" ry="30"></ellipse>
+            <text x="410.5" y="373.5" font-family="Times New Roman" font-size="20" id="q3">Q₃</text>
+            <ellipse  stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="24" ry="24"></ellipse>
+            <!--q1-->
+            <ellipse class="nodo" id="gQ1" stroke="black" stroke-width="1" fill="none" cx="168.5" cy="198.5" rx="30" ry="30" id="q1"></ellipse>
+            <text x="157.5" y="204.5" font-family="Times New Roman" font-size="20">Q₁</text>
+
+
+            <polygon stroke="black" stroke-width="1" points="81.5,198.5 138.5,198.5"></polygon>
+            <!--lq1aa-->
+            <polygon fill="black" stroke-width="1" points="138.5,198.5 130.5,193.5 130.5,203.5"></polygon>
+            <path stroke="black" stroke-width="1" fill="none" d="M 155.275,171.703 A 22.5,22.5 0 1 1 181.725,171.703"></path>
+            <text id="Q1aa" x="136.5" y="122.5" font-family="Times New Roman" font-size="20">a &gt; a,R</text>
+            <!--lq1ba-->
+            <polygon fill="black" stroke-width="1" points="181.725,171.703 190.473,168.17 182.382,162.292"></polygon>
+            <path stroke="black" stroke-width="1" fill="none" d="M 181.725,225.297 A 22.5,22.5 0 1 1 155.275,225.297"></path>
+            <text id="Q1ba" x="135.5" y="287.5" font-family="Times New Roman" font-size="20">b &gt; a,R</text>
+            <!--lq2BB-->
+            <polygon fill="black" stroke-width="1" points="155.275,225.297 146.527,228.83 154.618,234.708"></polygon>
+            <polygon stroke="black" stroke-width="1" points="198.5,198.5 391.5,198.5"></polygon>
+            <polygon fill="black" stroke-width="1" points="391.5,198.5 383.5,193.5 383.5,203.5"></polygon>
+            <text id="Q2BB" x="259.5" y="219.5" font-family="Times New Roman" font-size="20">B &gt; B,L</text>
+            <!--lq2aa-->
+            <path stroke="black" stroke-width="1" fill="none" d="M 413.787,169.63 A 22.5,22.5 0 1 1 439.724,174.817"></path>
+            <text id="Q2aa" x="423.5" y="120.5" font-family="Times New Roman" font-size="20">a &gt; a,L</text>
+            <polygon fill="black" stroke-width="1" points="439.724,174.817 448.994,173.068 442.214,165.718"></polygon>
+            <!--lq3BB-->
+            <polygon stroke="black" stroke-width="1" points="421.5,228.5 421.5,337.5"></polygon>
+            <polygon fill="black" stroke-width="1" points="421.5,337.5 426.5,329.5 416.5,329.5"></polygon>
+            <text id="Q3BB" x="343.5" y="289.5" font-family="Times New Roman" font-size="20">B &gt; B,R</text>
             
-        </svg>
+        </svg>     
+        </div>
     </section>
 
     <!-- Footer -->
