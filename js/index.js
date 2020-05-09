@@ -84,8 +84,6 @@ function evaluarEntrada(tiempo) {
                 i++;
                 con++
                 $('#'+pintar).removeClass(clase);
-                console.log(pintar);
-                console.log(i);
                 break;
             }
             if(cadena[i] == caracterBlanco && estado == 'Q1'){
@@ -96,8 +94,6 @@ function evaluarEntrada(tiempo) {
                 con++
                 pintar = i-1;
                 $('#'+pintar).removeClass(clase);
-                console.log(estado);
-                console.log(pintar);
                 break;
             }
             if(estado == 'Q2' ){
@@ -105,12 +101,10 @@ function evaluarEntrada(tiempo) {
                     $('#contador').text(con);
                     con++
                     i--;
-                    console.log(i);
-                    $('#'+i).text('b');
+                    $('#'+i).text('a');
                     $('#'+i).addClass(clase);
                     pintar = i+1;
                     $('#'+pintar).removeClass(clase);
-                    console.log(pintar);
                     break;
                     
                 }
@@ -122,18 +116,13 @@ function evaluarEntrada(tiempo) {
                     $('#'+pintar).removeClass(clase);
                     $('#'+i).text(caracterBlanco);
                     $('#'+i).addClass(clase);
-                    console.log(i);
                     pintar=0;
-                    console.log(i);
                     $('#estado').text(estado);
-                    console.log(estado);
                     break; 
                 }
                 if(i==0){
                     $('#'+i).removeClass(clase);
                     $('#'+'1').addClass(clase);
-                    console.log(pintar);
-                    console.log(i);
                     estado = 'Q3';
                     $('#estado').text(estado);
                     swal("Proceso terminado correctamente", "", "success");
@@ -146,9 +135,11 @@ function evaluarEntrada(tiempo) {
     },tiempo);
 }
 
-    //Detiene el indice
-    function detenerMaquina(){
-        clearInterval(cabecera);
-        swal("Se detuvo el proceso", "", "warning");
-        $("#verificar").attr('disabled', false);
-    }
+//Detiene el indice
+function detenerMaquina(){
+    clearInterval(cabecera);
+    swal("Se detuvo el proceso", "", "warning");
+    $("#verificar").attr('disabled', false);
+    eliminarTabla();
+    leerCaracteresDeEntrada();
+}
