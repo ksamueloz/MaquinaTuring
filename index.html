@@ -33,13 +33,13 @@
 
 <body style="background: #2b2b2b;">
     <!-- Navigation -->
-  <nav class="navbar navbar-light bg-light static-top">
-    <div class="container">
-        <div class="rounded mx-auto d-block">
-            <p><img src="img/unimag.png" alt="Logo Unimag" height="150" width="150"></p>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <div class="rounded mx-auto d-block">
+                <p><img src="img/unimag.png" alt="Logo Unimag" height="150" width="150"></p>
+            </div>
         </div>
-    </div>
-  </nav>
+    </nav>
     <!-- Masthead -->
     <header class="masthead text-white text-center">
         <div class="overlay"></div>
@@ -49,22 +49,30 @@
                     <h1 class="mb-5">Máquina de Turing</h1>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form action="#" method="POST">
-                        <div class="form-row">
-                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                    <div class="form-row align-items-center">
+                        <form class="form-inline"></form>
+                            <div class="col-auto">
                                 <input type="text" class="form-control form-control-lg" placeholder="Expresión {a,b}"
                                     id="texto" required pattern="[a-b]+">
                             </div>
-                            <div class="col-12 col-md-3">
-                                <button class="btn btn-block btn-lg btn-primary" type="button" id="ingresar"
-                                    data-toggle="popover" title="Error" data-content="La cadena está vacía."
-                                    data-placemente="right" data-trigger="focus">Ingresar</button>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                <div class="btn-group" role="group" aria-label="Funciones">
+                                    <button class="btn btn-block btn-lg btn-primary" type="button" id="ingresar"
+                                        data-toggle="popover" title="Error" data-content="La cadena está vacía."
+                                        data-placemente="right" data-trigger="focus">Ingresar</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="col-auto">
+                                <div class="btn-group" role="group" aria-label="Funciones">
+                                    <button class="btn btn-block btn-lg btn-primary" type="button"
+                                        id="instrucciones">Instrucciones</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <!-- Icons Grid -->
@@ -86,8 +94,10 @@
                     </div>
                     <div class="btn-group" role="group" aria-label="Funciones">
                         <button class="btn btn-danger" id="verificar" content="1">Verificar Expresión</button>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Funciones">
                         <button class="btn btn-warning" id="detener" content="1"
-                            onclick="detenerMaquina()">Detener</button>
+                        onclick="detenerMaquina()">Detener</button>
                     </div>
                 </div>
             </div>
@@ -95,41 +105,50 @@
         <div class="container" id="maq-turing">
             <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <!--q2-->
-            <ellipse class="nodo" id="gQ2" stroke="black" stroke-width="1" fill="none" cx="421.5" cy="198.5" rx="30" ry="30"></ellipse>
-            <text x="410.5" y="204.5" font-family="Times New Roman" font-size="20" id="q2">Q₂</text>
+                <ellipse class="nodo" id="Q2" stroke="black" stroke-width="1" fill="none" cx="421.5" cy="198.5" rx="30"
+                    ry="30"></ellipse>
+                <text x="410.5" y="204.5" font-family="Times New Roman" font-size="20" id="q2">Q₂</text>
                 <!--q3-->
-            <ellipse class="nodo" id="gQ3" stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="30" ry="30"></ellipse>
-            <text x="410.5" y="373.5" font-family="Times New Roman" font-size="20" id="q3">Q₃</text>
-            <ellipse  stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="24" ry="24"></ellipse>
-            <!--q1-->
-            <ellipse class="nodo" id="gQ1" stroke="black" stroke-width="1" fill="none" cx="168.5" cy="198.5" rx="30" ry="30" id="q1"></ellipse>
-            <text x="157.5" y="204.5" font-family="Times New Roman" font-size="20">Q₁</text>
+                <ellipse class="nodo" id="Q3" stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="30"
+                    ry="30"></ellipse>
+                <text x="410.5" y="373.5" font-family="Times New Roman" font-size="20" id="q3">Q₃</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="421.5" cy="367.5" rx="24" ry="24"></ellipse>
+                <!--q1-->
+                <ellipse class="nodo" id="Q1" stroke="black" stroke-width="1" fill="none" cx="168.5" cy="198.5" rx="30"
+                    ry="30" id="q1"></ellipse>
+                <text x="157.5" y="204.5" font-family="Times New Roman" font-size="20">Q₁</text>
 
 
-            <polygon stroke="black" stroke-width="1" points="81.5,198.5 138.5,198.5"></polygon>
-            <!--lq1aa-->
-            <polygon fill="black" stroke-width="1" points="138.5,198.5 130.5,193.5 130.5,203.5"></polygon>
-            <path stroke="black" stroke-width="1" fill="none" d="M 155.275,171.703 A 22.5,22.5 0 1 1 181.725,171.703"></path>
-            <text id="Q1aa" x="136.5" y="122.5" font-family="Times New Roman" font-size="20">a &gt; a,R</text>
-            <!--lq1ba-->
-            <polygon fill="black" stroke-width="1" points="181.725,171.703 190.473,168.17 182.382,162.292"></polygon>
-            <path stroke="black" stroke-width="1" fill="none" d="M 181.725,225.297 A 22.5,22.5 0 1 1 155.275,225.297"></path>
-            <text id="Q1ba" x="135.5" y="287.5" font-family="Times New Roman" font-size="20">b &gt; a,R</text>
-            <!--lq2BB-->
-            <polygon fill="black" stroke-width="1" points="155.275,225.297 146.527,228.83 154.618,234.708"></polygon>
-            <polygon stroke="black" stroke-width="1" points="198.5,198.5 391.5,198.5"></polygon>
-            <polygon fill="black" stroke-width="1" points="391.5,198.5 383.5,193.5 383.5,203.5"></polygon>
-            <text id="Q2BB" x="259.5" y="219.5" font-family="Times New Roman" font-size="20">B &gt; B,L</text>
-            <!--lq2aa-->
-            <path stroke="black" stroke-width="1" fill="none" d="M 413.787,169.63 A 22.5,22.5 0 1 1 439.724,174.817"></path>
-            <text id="Q2aa" x="423.5" y="120.5" font-family="Times New Roman" font-size="20">a &gt; a,L</text>
-            <polygon fill="black" stroke-width="1" points="439.724,174.817 448.994,173.068 442.214,165.718"></polygon>
-            <!--lq3BB-->
-            <polygon stroke="black" stroke-width="1" points="421.5,228.5 421.5,337.5"></polygon>
-            <polygon fill="black" stroke-width="1" points="421.5,337.5 426.5,329.5 416.5,329.5"></polygon>
-            <text id="Q3BB" x="343.5" y="289.5" font-family="Times New Roman" font-size="20">B &gt; B,R</text>
-            
-        </svg>     
+                <polygon stroke="black" stroke-width="1" points="81.5,198.5 138.5,198.5"></polygon>
+                <!--lineaq1aa-->
+                <polygon fill="black" stroke-width="1" points="138.5,198.5 130.5,193.5 130.5,203.5"></polygon>
+                <path stroke="black" stroke-width="1" fill="none"
+                    d="M 155.275,171.703 A 22.5,22.5 0 1 1 181.725,171.703"></path>
+                <text id="Q1aa" x="136.5" y="122.5" font-family="Times New Roman" font-size="20">a &gt; a,R</text>
+                <!--lineaq1ba-->
+                <polygon fill="black" stroke-width="1" points="181.725,171.703 190.473,168.17 182.382,162.292">
+                </polygon>
+                <path stroke="black" stroke-width="1" fill="none"
+                    d="M 181.725,225.297 A 22.5,22.5 0 1 1 155.275,225.297"></path>
+                <text id="Q1ba" x="135.5" y="287.5" font-family="Times New Roman" font-size="20">b &gt; a,R</text>
+                <!--lineaq2BB-->
+                <polygon fill="black" stroke-width="1" points="155.275,225.297 146.527,228.83 154.618,234.708">
+                </polygon>
+                <polygon stroke="black" stroke-width="1" points="198.5,198.5 391.5,198.5"></polygon>
+                <polygon fill="black" stroke-width="1" points="391.5,198.5 383.5,193.5 383.5,203.5"></polygon>
+                <text id="Q2BB" x="259.5" y="219.5" font-family="Times New Roman" font-size="20">B &gt; B,L</text>
+                <!--lineaq2aa-->
+                <path stroke="black" stroke-width="1" fill="none"
+                    d="M 413.787,169.63 A 22.5,22.5 0 1 1 439.724,174.817"></path>
+                <text id="Q2aa" x="423.5" y="120.5" font-family="Times New Roman" font-size="20">a &gt; a,L</text>
+                <polygon fill="black" stroke-width="1" points="439.724,174.817 448.994,173.068 442.214,165.718">
+                </polygon>
+                <!--lineaq3BB-->
+                <polygon stroke="black" stroke-width="1" points="421.5,228.5 421.5,337.5"></polygon>
+                <polygon fill="black" stroke-width="1" points="421.5,337.5 426.5,329.5 416.5,329.5"></polygon>
+                <text id="Q3BB" x="343.5" y="289.5" font-family="Times New Roman" font-size="20">B &gt; B,R</text>
+
+            </svg>
         </div>
     </section>
 
@@ -137,12 +156,13 @@
     <footer class="tm-container-outer">
         <p class="mb-0">Copyright <span class="tm-current-year">&copy;
                 <script>document.write(new Date().getFullYear());</script>
-            </span><p>Todos Los Derechos Reservados</p>
-            <p>Andrés Castro,&nbsp;&nbsp; Aibert Gamboa,&nbsp;&nbsp; Kevin Moreno,&nbsp;&nbsp; Luis Puello</p>
-            <p id="logo-uni">
-                Universidad Del Magdalena
-                <img src="img/unimag.png" alt="Logo Unimag" height="80" width="80">
-            </p>
+            </span>
+        <p>Todos Los Derechos Reservados</p>
+        <p>Andrés Castro,&nbsp;&nbsp; Aibert Gamboa,&nbsp;&nbsp; Kevin Moreno,&nbsp;&nbsp; Luis Puello</p>
+        <p id="logo-uni">
+            Universidad Del Magdalena
+            <img src="img/unimag.png" alt="Logo Unimag" height="80" width="80">
+        </p>
         </p>
     </footer>
 
